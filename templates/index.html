@@ -25,23 +25,23 @@
         <form method="POST">
             <div class="form-group">
                 <label>Section Length 1 (mm)</label>
-                <input type="number" name="l1" step="0.1" value="50" required>
+                <input type="number" name="l1" step="0.1" placeholder="e.g. 50" required>
             </div>
             <div class="form-group">
                 <label>Section Length 2 (mm)</label>
-                <input type="number" name="l2" step="0.1" value="50" required>
+                <input type="number" name="l2" step="0.1" placeholder="e.g. 50" required>
             </div>
             <div class="form-group">
                 <label>Thickness (mm)</label>
-                <input type="number" name="thickness" step="0.1" value="5" required>
+                <input type="number" name="thickness" step="0.1" placeholder="e.g. 5" required>
             </div>
             <div class="form-group">
                 <label>Jig Weight (kg)</label>
-                <input type="number" name="jig_wt" step="1" value="1001" required>
+                <input type="number" name="jig_wt" step="1" placeholder="e.g. 1001" required>
             </div>
             <div class="form-group">
                 <label>Target Coating (µm)</label>
-                <input type="number" name="coating" step="0.1" value="87" required>
+                <input type="number" name="coating" step="0.1" placeholder="e.g. 87" required>
             </div>
             <button type="submit" class="btn">Calculate Time</button>
         </form>
@@ -52,6 +52,9 @@
             <div class="result-value">{{ prediction }}</div>
         </div>
         {% endif %}
+    </div>
+</body>
+</html>
     </div>
 </body>
 </html>
