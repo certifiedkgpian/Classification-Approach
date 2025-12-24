@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zinc Immersion Predictor</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #eef2f3; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+        h2 { text-align: center; color: #2c3e50; margin-bottom: 1.5rem; }
+        .form-group { margin-bottom: 1rem; }
+        label { display: block; margin-bottom: 0.5rem; color: #666; font-size: 0.9rem; }
+        input { width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 1rem; transition: border-color 0.3s; }
+        input:focus { border-color: #3498db; outline: none; }
+        .btn { width: 100%; background: #3498db; color: white; padding: 0.75rem; border: none; border-radius: 6px; font-size: 1rem; font-weight: bold; cursor: pointer; transition: background 0.3s; }
+        .btn:hover { background: #2980b9; }
+        .result-box { margin-top: 1.5rem; padding: 1rem; background: #d4edda; border: 1px solid #c3e6cb; color: #155724; border-radius: 6px; text-align: center; }
+        .result-label { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.25rem; }
+        .result-value { font-size: 1.5rem; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>⚙️ Immersion Time</h2>
+        <form method="POST">
+            <div class="form-group">
+                <label>Section Length 1 (mm)</label>
+                <input type="number" name="l1" step="0.1" value="50" required>
+            </div>
+            <div class="form-group">
+                <label>Section Length 2 (mm)</label>
+                <input type="number" name="l2" step="0.1" value="50" required>
+            </div>
+            <div class="form-group">
+                <label>Thickness (mm)</label>
+                <input type="number" name="thickness" step="0.1" value="5" required>
+            </div>
+            <div class="form-group">
+                <label>Jig Weight (kg)</label>
+                <input type="number" name="jig_wt" step="1" value="1001" required>
+            </div>
+            <div class="form-group">
+                <label>Target Coating (µm)</label>
+                <input type="number" name="coating" step="0.1" value="87" required>
+            </div>
+            <button type="submit" class="btn">Calculate Time</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result-box">
+            <span class="result-label">Recommended Time</span>
+            <div class="result-value">{{ prediction }}</div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
