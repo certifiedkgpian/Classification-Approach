@@ -25,11 +25,11 @@ def parse_dimensions(section_str):
         return np.nan, np.nan
  
 def categorize_time(seconds):
-    if 55 <= seconds <= 63:
+    if 55 <= seconds <= 70:
         return '55s-63s'
-    elif 70 <= seconds <= 78:
+    elif 70 <= seconds <= 90:
         return '70s-78s'
-    elif 90 <= seconds <= 98:
+    elif 90 <= seconds <= 105:
         return '90s-98s'
     elif 105 <= seconds <= 115:
         return '105s-115s'
