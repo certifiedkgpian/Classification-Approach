@@ -24,6 +24,14 @@
         <h2>⚙️ Immersion Time</h2>
         <form method="POST">
             <div class="form-group">
+                <label>Bath Temperature (°C)</label>
+                <input type="number" name="bath_temp" step="0.1" placeholder="e.g. 460" required>
+            </div>
+            <div class="form-group">
+                <label>Jig No.</label>
+                <input type="text" name="jig_no" placeholder="e.g. J-042" required>
+            </div>
+            <div class="form-group">
                 <label>Section Length 1 (mm)</label>
                 <input type="number" name="l1" step="0.1" placeholder="e.g. 50" required>
             </div>
@@ -45,7 +53,7 @@
             </div>
             <button type="submit" class="btn">Calculate Time</button>
         </form>
-
+ 
         {% if prediction %}
         <div class="result-box">
             <span class="result-label">Recommended Time</span>
@@ -55,6 +63,4 @@
     </div>
 </body>
 </html>
-    </div>
-</body>
-</html>
+ 

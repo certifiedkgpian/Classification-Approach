@@ -2,9 +2,9 @@ from flask import Flask, request, render_template
 import joblib
 import pandas as pd
 import os
-
+ 
 app = Flask(__name__)
-
+ 
 # Load model safely
 MODEL_PATH = 'zinc_model.joblib'
 if os.path.exists(MODEL_PATH):
@@ -14,7 +14,7 @@ if os.path.exists(MODEL_PATH):
     features = model_data['features']
 else:
     model = None
-
+ 
 @app.route('/', methods=['GET', 'POST'])
 def home():
     prediction_text = None
@@ -24,6 +24,10 @@ def home():
             return render_template('index.html', prediction="Error: Model not loaded.")
         
         try:
+            # bath_temp and jig_no are display-only — not passed to the model
+            _ = request.form.get('bath_temp')
+            _ = request.form.get('jig_no')
+ 
             # Get values from HTML form
             input_data = pd.DataFrame([[
                 float(request.form['l1']),
@@ -40,8 +44,8 @@ def home():
             
         except Exception as e:
             prediction_text = f"Error: {str(e)}"
-
+ 
     return render_template('index.html', prediction=prediction_text)
-
+ 
 if __name__ == "__main__":
     app.run(debug=True)
